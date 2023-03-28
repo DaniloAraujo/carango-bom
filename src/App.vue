@@ -1,6 +1,7 @@
 <template>
   <header class="col-3 bg-success">
     <BarraLateral />
+    <h1>teste</h1>
   </header>
 </template>
 
