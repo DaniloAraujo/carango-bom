@@ -1,14 +1,11 @@
 <template>
-  <div class="row">
-    <header class="col-3 bg-success">
-      <BarraLateral />
-    </header>
+  <header class="col-3 bg-success">
+    <BarraLateral />
+  </header>
   
-    <main class="col">
-      <!-- <Home /> -->
-      <Login />
-    </main>
-  </div>
+  <main>
+    <Login />
+  </main>
 </template>
 
 <script setup lang="ts">
