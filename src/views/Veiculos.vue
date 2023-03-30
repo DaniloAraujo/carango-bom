@@ -1,4 +1,5 @@
 <template>
+    <h2 class="text-center m-3 text-light">Cadastrar veículos</h2>
     <ul class="navbar-nav">
         <li class="nav-item p-1 p-1">
             <RouterLink to="/listagem-veiculo" class="text-light fs-5">Gerenciar veiculos</RouterLink>
@@ -36,7 +37,7 @@
 
 <script setup lang="ts"></script>
 
-<style>
+<style scoped>
 .formulario {
     max-width: 400px;
     margin: 20px auto;

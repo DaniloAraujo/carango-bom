@@ -9,6 +9,12 @@
                 <RouterLink to="/veiculos" class="nav-link" href="#">Veículos</RouterLink>
             </li>
             <li class="nav-item p-1">
+                <RouterLink to="/marcas" class="nav-link" href="#">Marcas</RouterLink>
+            </li>
+            <li class="nav-item p-1">
+                <RouterLink to="/dashboard" class="nav-link" href="#">Dashboard</RouterLink>
+            </li>
+            <li class="nav-item p-1">
                 <a class="nav-link" href="#">Sair</a>
             </li>
         </ul>
