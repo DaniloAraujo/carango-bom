@@ -44,7 +44,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { autentica } from '../services/autenticacao-service.js'
-import { useUsuarioStore } from '../stores/useUsuarioStore.js'
+import { useUsuarioStore } from '../stores/usuario-store.js'
 import { useRouter } from 'vue-router'
 
 const email = ref("")

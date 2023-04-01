@@ -12,37 +12,58 @@ const rotas: RouteRecordRaw[] = [
     {
         path: '/',
         name: 'Home',
-        component: Home
+        component: Home,
+        meta: {
+            exigeAutenticacao: false
+        }
     },
     {
         path: '/veiculos',
         name: 'Veiculos',
-        component: Veiculos
+        component: Veiculos,
+        meta: {
+            exigeAutenticacao: true
+        }
     },
     {
         path: '/listagem-veiculo',
         name: 'ListagemVeiculo',
-        component: ListagemExclusao
+        component: ListagemExclusao,
+        meta: {
+            exigeAutenticacao: true
+        }
     },
     {
         path: '/login',
         name: 'Login',
-        component: Login
+        component: Login,
+        meta: {
+            exigeAutenticacao: false
+        }
     },
     {
         path: '/marcas',
         name: 'Marcas',
-        component: Marcas
+        component: Marcas,
+        meta: {
+            exigeAutenticacao: true
+        }
     },
     {
         path: '/editar-marcas',
         name: 'GerenciarMarcas',
-        component: GerenciarMarcas
+        component: GerenciarMarcas,
+        meta: {
+            exigeAutenticacao: true
+        }
     },
     {
         path: '/dashboard',
         name: 'Dashboard',
-        component: Dashboard
+        component: Dashboard,
+        meta: {
+            exigeAutenticacao: true
+        }
     },
 
 ];

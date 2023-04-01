@@ -11,11 +11,50 @@
 </template>
 
 <script setup lang="ts">
-import BarraLateral from './components/BarraLateral.vue';
+import BarraLateral from './components/BarraLateral.vue'
 import Home from './views/Home.vue';
-import Login from '@/views/Login.vue';
-import ListagemExclusao from '@/views/ListagemExclusao.vue';
-import CadastroExclusao from '@/views/Veiculos.vue';
+
+import { useUsuarioStore } from './stores/usuario-store.js'
+import { RouterView, useRouter } from 'vue-router'
+import * as autenticacaoService from './services/autenticacao-service.js'
+import axios from 'axios';
+
+const usuarioStore = useUsuarioStore()
+console.log(autenticacaoService.getPapeis())
+
+const router = useRouter()
+router.beforeEach((to: any, from: any) => {
+  if (to.meta.exigeAutenticacao) {
+    const token = autenticacaoService.recuperaToken()
+
+    if (!token) {
+      return { name: "Login" }
+    }
+  }
+})
+
+axios.interceptors.request.use(config => {
+  const token = autenticacaoService.recuperaToken()
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+  return config
+})
+
+axios.interceptors.response.use(resp => {
+  console.log("RESP::", resp)
+  
+  return resp
+}, e => {
+  console.log("ERRO RESP::", e)
+
+  if(e.response.status == 401) {
+    autenticacaoService.logOff()
+    usuarioStore.logoff()
+
+    router.push("/login")
+  }
+})
 
 </script>
 
