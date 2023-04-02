@@ -7,7 +7,7 @@
           <RouterLink to="/login" class="nav-link">Entrar</RouterLink>
         </li>
         <li class="nav-item p-1">
-          <RouterLink to="/veiculos" class="nav-link" href="#"
+          <RouterLink to="/veiculos-lista" class="nav-link"
             >Veículos</RouterLink
           >
         </li>

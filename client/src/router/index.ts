@@ -18,17 +18,17 @@ const rotas: RouteRecordRaw[] = [
         }
     },
     {
-        path: '/veiculos',
-        name: 'Veiculos',
-        component: Veiculos,
+        path: '/veiculos-lista',
+        name: 'veiculosLista',
+        component: ListagemExclusao,
         meta: {
             exigeAutenticacao: true
         }
     },
     {
-        path: '/listagem-veiculo',
-        name: 'ListagemVeiculo',
-        component: ListagemExclusao,
+        path: '/veiculos',
+        name: 'veiculos',
+        component: Veiculos,
         meta: {
             exigeAutenticacao: true
         }
