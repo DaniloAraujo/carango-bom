@@ -18,7 +18,8 @@ export interface Marca {
   nome: string;
 }
 
-export interface VeiculoForm {    
+export interface VeiculoForm {
+  id?: string
   modelo: string;
   ano: number;
   valor: number;
@@ -33,4 +34,10 @@ export interface Veiculo {
   valor: number;
   imagemUrl: string;
   marca: Marca
+}
+
+export interface Indicador {
+  marca: string;
+  quantidade: number;
+  montante: number;
 }

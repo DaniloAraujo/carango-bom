@@ -34,6 +34,15 @@ const rotas: RouteRecordRaw[] = [
         }
     },
     {
+        path: '/veiculos/:id',
+        name: 'editarVeiculo',
+        component: Veiculos,
+        meta: {
+            exigeAutenticacao: true
+        },
+        props: true
+    },
+    {
         path: '/login',
         name: 'Login',
         component: Login,

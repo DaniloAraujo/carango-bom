@@ -10,17 +10,33 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>BMW</td>
-          <td>4</td>
-          <td>R$ 356.000</td>
+        <tr v-for="(marca, i) in marcas" :key="i">
+          <td>{{ marca.marca }}</td>
+          <td>{{ marca.quantidade }}</td>
+          <td>{{ marca.montante.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) }}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed, onMounted, reactive, ref } from 'vue';
+import { useMarcasStore } from '../stores/marcas-store';
+import { recuperaIndicadoresConsolidadosDasMarcas } from '../services/dashboard-service.js'
+import type { Indicador } from '../interfaces';
+
+const marcasStore = useMarcasStore()
+// const marcas = computed(() => marcasStore.marcas)
+const marcas = ref<Indicador[]>([])
+
+onMounted(() => {
+  recuperaIndicadoresConsolidadosDasMarcas()
+    .then(resp => marcas.value = resp)
+    .then(() => console.log(marcas.value))
+})
+
+</script>
 
 <style scoped>
 .table {

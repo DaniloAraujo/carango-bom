@@ -3,7 +3,7 @@
     <h2 class="text-center m-3 text-light">Cadastrar veículos</h2>
     <ul class="navbar-nav">
       <li class="nav-item p-1 p-1">
-        <RouterLink to="/listagem-veiculo" class="text-light fs-5"
+        <RouterLink to="/veiculos-lista" class="text-light fs-5"
           >Gerenciar veiculos</RouterLink
         >
       </li>
@@ -29,6 +29,7 @@
           name="modelo"
           id="modelo"
           class="form-control bg-dark text-light"
+          ref="modeloInput"
           v-model="dados.modelo"
         />
       </div>
@@ -68,28 +69,29 @@
       </div>
 
       <!-- Botão submit -->
-      <button type="submit" class="btn btn-primary mb-4" @click.prevent="cadastrar">Cadastrar</button>
+      <button type="submit" class="btn btn-primary mb-4" @click.prevent="salvar">Salvar</button>
     </form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, reactive } from 'vue'
+import { computed, onMounted, reactive, defineProps, ref } from 'vue'
 import { useMarcasStore } from '../stores/marcas-store.js'
 import * as marcasService from '../services/marcas-service.js'
 import * as veiculosService from '../services/veiculo-service.js'
+import { useVeiculosStore } from '../stores/veiculos-store'
+import type { VeiculoForm } from '../interfaces/index.js'
+import { useRouter } from 'vue-router'
 
 const marcasStore = useMarcasStore()
+const veiculosStore = useVeiculosStore()
+const router = useRouter()
+
 const marcas = computed(() => marcasStore.marcas)
 
-onMounted(() => {
-    marcasStore.isMarcasVazio && (
-        marcasService.listaMarcas()
-            .then(resp => marcasStore.atualizaMarcas(resp))
-    )
-})
+const { id } = defineProps(['id'])
 
-const dados = reactive({
+const dados = reactive<VeiculoForm>({
     modelo: "",
     ano: 0,
     valor: 0,
@@ -97,10 +99,48 @@ const dados = reactive({
     marcaId: ""
 })
 
+const modeloInput = ref<HTMLElement | null>(null)
+
+const salvar = () => {
+    id ? alterar() : cadastrar()
+}
+
 const cadastrar = () => {
     veiculosService.cadastraVeiculo(dados)
-        .then(resp => console.log(resp))
+        .then(resp => {
+            dados.modelo = "",
+            dados.ano = 0,
+            dados.valor = 0,
+            dados.imagemUrl = "",
+            dados.marcaId = ""
+
+            modeloInput.value!.focus()
+        })
 }
+const alterar = () => {
+    veiculosService.alteraVeiculo(dados)
+        .then(() => router.push("/veiculos-lista"))
+}
+
+onMounted(() => {
+console.log("dados::", dados)
+
+marcasService.listaMarcas()
+    .then(resp => marcasStore.atualizaMarcas(resp))
+
+    if (id) {
+        const veiculo = veiculosStore.veiculos.find(v => v.id === id)
+
+        if (veiculo) {
+            dados.id = id
+            dados.modelo = veiculo!.modelo,
+            dados.ano = veiculo!.ano,
+            dados.valor = veiculo!.valor,
+            dados.imagemUrl = veiculo!.imagemUrl,
+            dados.marcaId = veiculo!.marca.id
+        }
+    }
+})
 
 </script>
 

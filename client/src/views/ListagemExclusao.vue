@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="veiculos-view-container">
     <h2 class="text-center m-3 text-light">Veículos</h2>
     <ul class="navbar-nav">
       <li class="nav-item p-1 p-1">
@@ -8,32 +8,8 @@
         >
       </li>
     </ul>
-    <table class="table table-dark table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Marca</th>
-          <th scope="col">Modelo</th>
-          <th scope="col">Ano</th>
-          <th scope="col">Valor</th>
-          <th scope="col">Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>BMW</td>
-          <td>X1</td>
-          <td>2012</td>
-          <td>R$ 89.000</td>
-          <td>
-            <button class="btn btn-sm btn-danger m-1">Deletar</button>
-            <button class="btn btn-sm btn-warning m-1">Alterar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
     <!-- card -->
-    <div v-if="!veiculosStore.isVeiculosVazio" class="cards-container d-flex">
+    <div v-if="!veiculosStore.isVeiculosVazio" class="cards-container d-flex flex-wrap">
       <div
         v-for="veiculo in veiculos"
         :key="veiculo.id"
@@ -55,7 +31,8 @@
               })
             }}
           </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <button @click="deletar(veiculo)" class="btn btn-sm btn-danger m-1">Deletar</button>
+          <RouterLink :to="`/veiculos/${veiculo.id}`" class="btn btn-sm btn-warning m-1">Alterar</RouterLink>
         </div>
       </div>
     </div>
@@ -66,19 +43,27 @@
 import { computed, onMounted } from "vue";
 import { useVeiculosStore } from "../stores/veiculos-store.js";
 import * as veiculosService from "../services/veiculo-service.js";
+import type { Veiculo } from "../interfaces/index.js";
 
 const veiculosStore = useVeiculosStore();
 const veiculos = computed(() => veiculosStore.veiculos);
 
+const deletar = (veiculo: Veiculo) => {
+    if (confirm(`Deseja realmente deletar o veículo ${veiculo.modelo}?`)) {
+        veiculosService.excluiVeiculo(veiculo.id)
+            .then(() => veiculosStore.veiculos = veiculosStore.veiculos.filter(v => v.id != veiculo.id))
+    }
+}
+
 onMounted(() => {
-  veiculosService
-    .buscaVeiculos()
-    .then((veiculosResp) => (veiculosStore.veiculos = veiculosResp));
+  veiculosService.buscaVeiculos()
+    .then(veiculosResp => veiculosStore.veiculos = veiculosResp);
 });
 </script>
 
 <style scoped>
     .cards-container {
-        gap: 1rem
+        gap: .6rem
     }
+
 </style>
