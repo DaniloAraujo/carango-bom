@@ -6,7 +6,7 @@ import { BASE } from '@/utils'
 export function listaMarcas(): Promise<Marca[]> {
   return axios.get(BASE + "/api/marcas")
     .then(resposta => resposta.data.dados)
-    .then((marcas: Marca[]) => marcas)
+    // .then((marcas: Marca[]) => marcas)
 }
 
 export function cadastraMarca(nome: string) {
@@ -20,4 +20,9 @@ export function cadastraMarca(nome: string) {
 export function excluiMarca(id: string) {
   return axios.delete(BASE + `/api/marcas/${id}`)
     .then(resp => resp.data.dados)
+}
+
+export function editarMarca(marca: Marca): Promise<Marca> {
+  return axios.put(BASE + `/api/marcas/${marca.id}`, marca)
+      .then(resposta => resposta.data.dados);
 }

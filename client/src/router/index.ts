@@ -42,7 +42,7 @@ const rotas: RouteRecordRaw[] = [
         }
     },
     {
-        path: '/marcas',
+        path: '/marcas-lista',
         name: 'Marcas',
         component: Marcas,
         meta: {
@@ -50,12 +50,21 @@ const rotas: RouteRecordRaw[] = [
         }
     },
     {
-        path: '/editar-marcas',
-        name: 'GerenciarMarcas',
+        path: '/marcas',
+        name: 'cadastrarMarcas',
         component: GerenciarMarcas,
         meta: {
             exigeAutenticacao: true
         }
+    },
+    {
+        path: '/marcas/:id',
+        name: 'GerenciarMarcas',
+        component: GerenciarMarcas,
+        meta: {
+            exigeAutenticacao: true
+        },
+        props: true
     },
     {
         path: '/dashboard',

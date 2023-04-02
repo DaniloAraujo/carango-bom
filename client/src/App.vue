@@ -5,7 +5,7 @@
     </header>
     
     <main class="col tela-base">
-      <Home />
+      <RouterView />
     </main>
   </div>
 </template>

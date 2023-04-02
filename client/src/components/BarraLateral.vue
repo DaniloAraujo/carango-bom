@@ -12,7 +12,7 @@
           >
         </li>
         <li class="nav-item p-1">
-          <RouterLink to="/marcas" class="nav-link" href="#">Marcas</RouterLink>
+          <RouterLink to="/marcas-lista" class="nav-link" href="#">Marcas</RouterLink>
         </li>
         <li class="nav-item p-1">
           <RouterLink to="/dashboard" class="nav-link" href="#"
@@ -28,13 +28,12 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import * as autenticacaoService from '../services/autenticacao-service.js'
+import { useRouter } from "vue-router";
+import * as autenticacaoService from "../services/autenticacao-service.js";
 
 const logOff = () => {
-    autenticacaoService.logOff()
-}
-
+  autenticacaoService.logOff();
+};
 </script>
 
 <style>
