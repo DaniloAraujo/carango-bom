@@ -14,16 +14,7 @@ const jsonDb = new Low(adapter)
 await jsonDb.read()
 
 jsonDb.data = jsonDb.data || { 
-    marcas: [
-        {
-            id: '1',
-            nome: 'Fiat'
-        },
-        {
-            id: '2',
-            nome: 'Ford'
-        },
-    ],
+    marcas: {},
     veiculos: {},
     usuarios: {
         'fulano@email.com': {
