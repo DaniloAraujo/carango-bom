@@ -22,7 +22,7 @@
           :alt="`imagem de um ${veiculo.marca} ${veiculo.modelo}`"
         />
         <div class="card-body">
-          <h5 class="card-title">{{ veiculo.modelo }}</h5>
+          <h5 class="card-title">{{ veiculo.marca.nome }} - {{ veiculo.modelo }}</h5>
           <p class="card-text">
             {{
               veiculo.valor.toLocaleString("pt-BR", {

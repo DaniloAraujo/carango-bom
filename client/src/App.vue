@@ -1,10 +1,10 @@
 <template>
   <div class="row">
-    <header class="col-3">
+    <header class="col-2">
       <BarraLateral />
     </header>
     
-    <main class="col tela-base">
+    <main class="col tela-base ps-3 bg-dark">
       <RouterView />
     </main>
   </div>
@@ -12,7 +12,6 @@
 
 <script setup lang="ts">
 import BarraLateral from './components/BarraLateral.vue'
-import Home from './views/Home.vue';
 
 import { useUsuarioStore } from './stores/usuario-store.js'
 import { RouterView, useRouter } from 'vue-router'
@@ -61,10 +60,18 @@ axios.interceptors.response.use(resp => {
 <style>
 header {
   height: 100vh;
-  background-color: #2C3333;
+  background-color: #262A56;
+}
+
+.row > * {
+  padding-right: 0 !important;
+}
+
+.row {
+  --bs-gutter-x: 0 !important;
 }
 
 .tela-base {
-  background-color: #2E4F4F;
+  /* background-color: #2E4F4F; */
 }
 </style>

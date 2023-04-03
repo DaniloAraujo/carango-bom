@@ -1,26 +1,31 @@
 <template>
   <div>
-    <h1 class="text-center p-1 titulo">Carango Bom</h1>
+    <!-- <h1 class="text-center titulo">Carango Bom</h1> -->
+    <img src="../../images/logo-carango.png" alt="logo" class="img-fluid">
     <nav class="text-center">
       <ul class="navbar-nav">
-        <li class="nav-item p-1 p-1">
+        <li class="nav-item">
           <RouterLink to="/login" class="nav-link">Entrar</RouterLink>
         </li>
-        <li class="nav-item p-1">
+        <li class="nav-item" @click="logOff">
+          <a class="nav-link border-bottom" href="#">Sair</a>
+          <!-- <hr class="text-center text-light"> -->
+        </li>
+        <li class="nav-item mt-1">
+          <RouterLink to="/" class="nav-link">Inicio</RouterLink>
+        </li>
+        <li class="nav-item">
           <RouterLink to="/veiculos-lista" class="nav-link"
             >Veículos</RouterLink
           >
         </li>
-        <li class="nav-item p-1">
+        <li class="nav-item">
           <RouterLink to="/marcas-lista" class="nav-link" href="#">Marcas</RouterLink>
         </li>
-        <li class="nav-item p-1">
+        <li class="nav-item">
           <RouterLink to="/dashboard" class="nav-link" href="#"
             >Dashboard</RouterLink
           >
-        </li>
-        <li class="nav-item p-1" @click="logOff">
-          <a class="nav-link" href="#">Sair</a>
         </li>
       </ul>
     </nav>
@@ -46,7 +51,7 @@ const logOff = () => {
 }
 
 .nav-link:hover {
-  background-color: #0e8388;
+  background-color: #B8621B;
   color: #fff !important;
 }
 </style>
