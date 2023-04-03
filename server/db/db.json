@@ -1,0 +1,85 @@
+{
+  "marcas": {
+    "8a155b65-8c1c-491a-a4d9-a41861cdfe8c": {
+      "id": "8a155b65-8c1c-491a-a4d9-a41861cdfe8c",
+      "nome": "Audi"
+    },
+    "921b9461-bcee-4ac9-9a8d-c6ba283c882d": {
+      "id": "921b9461-bcee-4ac9-9a8d-c6ba283c882d",
+      "nome": "Mercedes"
+    },
+    "6229b246-9b5b-46f1-83ed-7993a4f5590b": {
+      "id": "6229b246-9b5b-46f1-83ed-7993a4f5590b",
+      "nome": "Alfa Romeo"
+    },
+    "a7b61fc3-c8e4-4254-bc7c-d7f94351b785": {
+      "id": "a7b61fc3-c8e4-4254-bc7c-d7f94351b785",
+      "nome": "Lancia"
+    },
+    "c3b4a564-bea8-4af8-9a61-6e5a9acf23e2": {
+      "id": "c3b4a564-bea8-4af8-9a61-6e5a9acf23e2",
+      "nome": "Ferrari"
+    },
+    "d0dff3c2-4baf-4c29-ab7e-2e4e045a0e6e": {
+      "id": "d0dff3c2-4baf-4c29-ab7e-2e4e045a0e6e",
+      "nome": "Pagani"
+    }
+  },
+  "veiculos": {
+    "5c7da075-59a0-4c76-8998-448f46a4c2cc": {
+      "id": "5c7da075-59a0-4c76-8998-448f46a4c2cc",
+      "modelo": "C63",
+      "marcaId": "921b9461-bcee-4ac9-9a8d-c6ba283c882d",
+      "imagemUrl": "https://f7432d8eadcf865aa9d9-9c672a3a4ecaaacdf2fee3b3e6fd2716.ssl.cf3.rackcdn.com/C2299/U6291/IMG_15470-large.jpg",
+      "ano": 2013,
+      "valor": 250000
+    },
+    "3e17ffcb-c9e8-4d77-a8c5-968dc7222276": {
+      "id": "3e17ffcb-c9e8-4d77-a8c5-968dc7222276",
+      "modelo": "156 Station Wagon",
+      "marcaId": "6229b246-9b5b-46f1-83ed-7993a4f5590b",
+      "imagemUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/2004_Alfa_Romeo_156_%28MY04%29_JTS_Selespeed_station_wagon_%2823913128482%29.jpg",
+      "ano": 2004,
+      "valor": 75000
+    },
+    "b66ee37a-2114-4e6a-b9c8-4a8227430807": {
+      "id": "b66ee37a-2114-4e6a-b9c8-4a8227430807",
+      "modelo": "S3",
+      "marcaId": "8a155b65-8c1c-491a-a4d9-a41861cdfe8c",
+      "imagemUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Black_Audi_S3.jpg",
+      "ano": 2005,
+      "valor": 105000
+    },
+    "5702db24-c9a1-471d-bbc6-453d87fa3247": {
+      "id": "5702db24-c9a1-471d-bbc6-453d87fa3247",
+      "modelo": "Zonda",
+      "marcaId": "d0dff3c2-4baf-4c29-ab7e-2e4e045a0e6e",
+      "imagemUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Pagani_Zonda_C12_%27chassis_001%27_Genf_2019_1Y7A5382.jpg/1200px-Pagani_Zonda_C12_%27chassis_001%27_Genf_2019_1Y7A5382.jpg",
+      "ano": 2010,
+      "valor": 15000000
+    },
+    "fbcd3801-3e2b-48ca-8f72-c49a7ff02cc0": {
+      "id": "fbcd3801-3e2b-48ca-8f72-c49a7ff02cc0",
+      "modelo": "500 sec",
+      "marcaId": "921b9461-bcee-4ac9-9a8d-c6ba283c882d",
+      "imagemUrl": "https://bringatrailer.com/wp-content/uploads/2019/10/1985_mercedes-benz_500sec_15754033340f85ffb1e2746f62Untitled04.png?fit=940%2C627",
+      "ano": 1986,
+      "valor": 500000
+    },
+    "224196d6-1903-434e-b1a3-15bb6e6ae3c1": {
+      "id": "224196d6-1903-434e-b1a3-15bb6e6ae3c1",
+      "modelo": "Giulia",
+      "marcaId": "6229b246-9b5b-46f1-83ed-7993a4f5590b",
+      "imagemUrl": "https://www.thegablessportscars.com/imagetag/82/4/l/Used-2017-Alfa-Romeo-Giulia-Quadrifoglio.jpg",
+      "ano": 2017,
+      "valor": 300000
+    }
+  },
+  "usuarios": {
+    "fulano@email.com": {
+      "email": "fulano@email.com",
+      "nome": "Fulano de Tal do Vue.js",
+      "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+    }
+  }
+}
