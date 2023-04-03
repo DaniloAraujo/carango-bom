@@ -6,7 +6,6 @@ import { BASE } from '@/utils'
 export function listaMarcas(): Promise<Marca[]> {
   return axios.get(BASE + "/api/marcas")
     .then(resposta => resposta.data.dados)
-    // .then((marcas: Marca[]) => marcas)
 }
 
 export function cadastraMarca(nome: string) {

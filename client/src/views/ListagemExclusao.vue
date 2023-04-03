@@ -61,7 +61,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
+<style>
     .cards-container {
         gap: .6rem
     }

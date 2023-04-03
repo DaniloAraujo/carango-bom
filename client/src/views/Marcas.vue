@@ -59,8 +59,10 @@ const deletar = (marca: Marca) => {
 </script>
 
 
-<style scoped>
+<style>
 .table {
-  max-width: 350px;
+  max-width: 800px;
+  text-align: center;
+  margin: auto;
 }
 </style>

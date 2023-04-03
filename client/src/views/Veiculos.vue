@@ -144,7 +144,7 @@ marcasService.listaMarcas()
 
 </script>
 
-<style scoped>
+<style>
 .formulario {
   max-width: 400px;
   margin: 20px auto;

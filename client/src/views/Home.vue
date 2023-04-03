@@ -1,32 +1,20 @@
 <template>
     <div class="veiculos-view-container">
       <h2 class="text-center m-3 text-light">Veículos a venda</h2>
-      <!-- card -->
-      <div v-if="!veiculosStore.isVeiculosVazio" class="cards-container d-flex flex-wrap">
-        <div
-          v-for="veiculo in veiculos"
-          :key="veiculo.id"
-          class="card bg-dark text-light"
-          style="width: 18rem"
-        >
-          <img
-            :src="veiculo.imagemUrl"
-            class="card-img-top"
-            :alt="`imagem de um ${veiculo.marca} ${veiculo.modelo}`"
-          />
-          <div class="card-body">
-            <h5 class="card-title">{{ veiculo.marca.nome }} - {{ veiculo.modelo }}</h5>
-            <p class="card-text">
-              {{
-                veiculo.valor.toLocaleString("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                })
-              }}
-            </p>
-          </div>
-        </div>
-      </div>
+      <table class="table table-dark table-striped text-center">
+        <thead>
+          <tr>
+            <th scope="col">modelo</th>
+            <th scope="col">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="veiculo in veiculos" :key="veiculo.id">
+            <td>{{ veiculo.modelo }}</td>
+            <td>R$ {{ veiculo.valor }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </template>
   
@@ -44,9 +32,5 @@
   });
   </script>
   
-  <style scoped>
-      .cards-container {
-          gap: .6rem
-      }
-  
+  <style>
   </style>

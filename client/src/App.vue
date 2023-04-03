@@ -4,7 +4,7 @@
       <BarraLateral />
     </header>
     
-    <main class="col tela-base ps-3 bg-dark">
+    <main class="col ps-3 bg-dark">
       <RouterView />
     </main>
   </div>
@@ -59,8 +59,8 @@ axios.interceptors.response.use(resp => {
 
 <style>
 header {
-  height: 100vh;
   background-color: #262A56;
+  min-height: 100vh;
 }
 
 .row > * {
@@ -69,9 +69,5 @@ header {
 
 .row {
   --bs-gutter-x: 0 !important;
-}
-
-.tela-base {
-  /* background-color: #2E4F4F; */
 }
 </style>

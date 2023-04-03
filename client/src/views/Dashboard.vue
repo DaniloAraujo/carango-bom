@@ -21,13 +21,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useMarcasStore } from '../stores/marcas-store';
 import { recuperaIndicadoresConsolidadosDasMarcas } from '../services/dashboard-service.js'
 import type { Indicador } from '../interfaces';
 
 const marcasStore = useMarcasStore()
-// const marcas = computed(() => marcasStore.marcas)
 const marcas = ref<Indicador[]>([])
 
 onMounted(() => {
@@ -38,7 +37,7 @@ onMounted(() => {
 
 </script>
 
-<style scoped>
+<style>
 .table {
   max-width: 800px;
   text-align: center;

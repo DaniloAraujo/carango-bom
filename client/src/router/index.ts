@@ -1,12 +1,12 @@
 import { createRouter, type RouteRecordRaw, createWebHistory } from 'vue-router';
 
 import Home from '@/views/Home.vue';
-import Veiculos from '@/views/Veiculos.vue';
-import ListagemExclusao from '@/views/ListagemExclusao.vue';
-import Login from '@/views/Login.vue';
-import Marcas from '@/views/Marcas.vue';
-import GerenciarMarcas from '@/views/GerenciarMarcas.vue';
-import Dashboard from '@/views/Dashboard.vue';
+// import Veiculos from '@/views/Veiculos.vue';
+// import ListagemExclusao from '@/views/ListagemExclusao.vue';
+// import Login from '@/views/Login.vue';
+// import Marcas from '@/views/Marcas.vue';
+// import GerenciarMarcas from '@/views/GerenciarMarcas.vue';
+// import Dashboard from '@/views/Dashboard.vue';
 
 const rotas: RouteRecordRaw[] = [
     {
@@ -20,7 +20,7 @@ const rotas: RouteRecordRaw[] = [
     {
         path: '/veiculos-lista',
         name: 'veiculosLista',
-        component: ListagemExclusao,
+        component: () => import('@/views/ListagemExclusao.vue'),
         meta: {
             exigeAutenticacao: true
         }
@@ -28,7 +28,7 @@ const rotas: RouteRecordRaw[] = [
     {
         path: '/veiculos',
         name: 'veiculos',
-        component: Veiculos,
+        component: () => import('@/views/Veiculos.vue'),
         meta: {
             exigeAutenticacao: true
         }
@@ -36,7 +36,7 @@ const rotas: RouteRecordRaw[] = [
     {
         path: '/veiculos/:id',
         name: 'editarVeiculo',
-        component: Veiculos,
+        component: () => import('@/views/Veiculos.vue'),
         meta: {
             exigeAutenticacao: true
         },
@@ -45,7 +45,7 @@ const rotas: RouteRecordRaw[] = [
     {
         path: '/login',
         name: 'Login',
-        component: Login,
+        component: () => import('@/views/Login.vue'),
         meta: {
             exigeAutenticacao: false
         }
@@ -53,7 +53,7 @@ const rotas: RouteRecordRaw[] = [
     {
         path: '/marcas-lista',
         name: 'Marcas',
-        component: Marcas,
+        component: () => import('@/views/Marcas.vue'),
         meta: {
             exigeAutenticacao: true
         }
@@ -61,7 +61,7 @@ const rotas: RouteRecordRaw[] = [
     {
         path: '/marcas',
         name: 'cadastrarMarcas',
-        component: GerenciarMarcas,
+        component: () => import('@/views/GerenciarMarcas.vue'),
         meta: {
             exigeAutenticacao: true
         }
@@ -69,7 +69,7 @@ const rotas: RouteRecordRaw[] = [
     {
         path: '/marcas/:id',
         name: 'GerenciarMarcas',
-        component: GerenciarMarcas,
+        component: () => import('@/views/GerenciarMarcas.vue'),
         meta: {
             exigeAutenticacao: true
         },
@@ -78,7 +78,7 @@ const rotas: RouteRecordRaw[] = [
     {
         path: '/dashboard',
         name: 'Dashboard',
-        component: Dashboard,
+        component: () => import('@/views/Dashboard.vue'),
         meta: {
             exigeAutenticacao: true
         }

@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!-- <h1 class="text-center titulo">Carango Bom</h1> -->
-    <img src="../../images/logo-carango.png" alt="logo" class="img-fluid">
+    <img src="../../images/logo-carango.jpeg" alt="logo" class="img-fluid">
     <nav class="text-center">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -9,7 +8,6 @@
         </li>
         <li class="nav-item" @click="logOff">
           <a class="nav-link border-bottom" href="#">Sair</a>
-          <!-- <hr class="text-center text-light"> -->
         </li>
         <li class="nav-item mt-1">
           <RouterLink to="/" class="nav-link">Inicio</RouterLink>
